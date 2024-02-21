@@ -1,7 +1,11 @@
-$background: black;
-$foreground: firebrick;
-$primary-color: ghostwhite;
-$secondary-color: slategray;
+$tertiary-color: black;
+$primary-color: firebrick;
+$secondary-color: #1A1A1A;
+$light-color: ghostwhite;
+$gray-color: slategray;
+// $secondary-color: firebrick;
+// $primary-color: ghostwhite;
+// $secondary-color: slategray;
 $full: 100%;
 $font-size: 16px;
 $font-weight: 200;
@@ -16,7 +20,7 @@ $flex: flex;
   flex: 1;
   width: $full;
   min-height: 100vh;
-  background-color: $background;
+  background-color: $tertiary-color;
 }
 
 %container {
@@ -26,7 +30,7 @@ $flex: flex;
 }
 
 %text {
-  color: $primary-color;
+  color: $light-color;
   font-size: $font-size;
   font-weight: $font-weight;
   margin-top: $margin-top;
@@ -62,12 +66,12 @@ $flex: flex;
   display: $flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid $foreground;
+  border: 1px solid $secondary-color;
   transition: all 150ms ease-in-out;
 
 }
 .hoveredLoadMoreBtn {
-  background-color: $foreground;
+  background-color: $secondary-color;
 }
 .loadMoreText {
   color: $primary-color;
@@ -95,6 +99,11 @@ $flex: flex;
   @extend %text;
   text-align: right;
 }
+.detailsSource {
+  @extend %text;
+  color: $primary-color;
+  font-weight: normal;
+}
 
 // ==================================
 // ========= Error Styling ==========
@@ -121,7 +130,7 @@ $flex: flex;
   width: $full;
 }
 .cardTitle {
-  color: $primary-color;
+  color: $light-color;
   font-size: $font-size;
   font-family: fantasy;
   font-weight: $font-weight * 2;
@@ -129,7 +138,7 @@ $flex: flex;
   margin-top: $margin-top + 5px;
 }
 .cardYear {
-  color: $primary-color;
+  color: $gray-color;
   font-size: $font-size;
   font-weight: $font-weight;
   margin-top: $margin-top;
@@ -142,7 +151,7 @@ $flex: flex;
   height: 80px;
   width: $full;
   padding: 0 16px;
-  background-color: $foreground;
+  background-color: $secondary-color;
   gap: 12px;
   display: $flex;
   flex-direction: row;
@@ -150,7 +159,7 @@ $flex: flex;
 }
 .headerBackIcon {
   width: 24px;
-  color: $primary-color;
+  color: $gray-color;
 }
 .headerTitle {
   flex: 1;
@@ -201,16 +210,16 @@ $flex: flex;
 }
 .searchIcon {
   position: absolute;
-  top: 8;
-  left: 16;
-  width: 24;
+  top: 12px;
+  left: 18px;
+  width: 24px;
 }
 .searchInput {
-  height: 40px;
-  padding: 0 20px 2px 48px;
+  height: 48px;
+  padding: 0 24px 2px 52px;
   border: 1px solid $secondary-color;
-  border-radius: 20px;
-  color: $secondary-color;
+  border-radius: 24px;
+  color: $gray-color;
   font-size: $font-size;
   font-weight: $font-weight;
 }
