@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { slice } from "lodash";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, ScrollView, View, Text, Pressable } from "react-native";
+import { ScrollView, View, Text, Pressable } from "react-native";
 import { Card } from "../components/Card";
 import { Header } from "../components/Header";
 import { Search } from "../components/Search";
 import { Error } from "./Error";
+import styles from "../styles/App.scss";
 
 export const Home = ({ navigation }) => {
   const [query, setQuery] = useState("");
@@ -57,13 +58,13 @@ export const Home = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}
       >
-        <View style={styles.container}>
+        <View style={styles.homeContainer}>
           <Search
             value={query}
             onChangeText={(prevText) => setQuery(prevText)}
           />
 
-          <View style={styles.content}>
+          <View style={styles.homeContent}>
             {loading ? (
               <Text style={styles.messageText}>Loading...</Text>
             ) : (
@@ -85,12 +86,12 @@ export const Home = ({ navigation }) => {
                     ))}
 
                     {initialPost >= search(data).length ? null : (
-                      <View style={styles.cta}>
+                      <View style={styles.loadMore}>
                         <Pressable
-                          style={styles.ctaBtn}
+                          style={styles.loadMoreBtn}
                           onPress={() => setInitialPost(initialPost + 5)}
                         >
-                          <Text style={styles.ctaText}>Load More</Text>
+                          <Text style={styles.loadMoreText}>Load More</Text>
                         </Pressable>
                       </View>
                     )}
@@ -106,48 +107,3 @@ export const Home = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  root: {
-    minHeight: "100vh",
-    width: "100%",
-    flex: 1,
-    backgroundColor: "#0B0C0F",
-  },
-  container: {
-    height: "100%",
-    width: "100%",
-    padding: 12,
-    display: "flex",
-  },
-  content: {
-    height: "auto",
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
-  messageText: {
-    color: "#F1F5F9",
-    fontSize: 16,
-    fontWeight: 200,
-    marginTop: 2,
-    flexGrow: 1,
-    textAlign: "center",
-  },
-  cta: {
-    width: "100%",
-    padding: 12,
-  },
-  ctaBtn: {
-    height: 40,
-    width: "auto",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#1A1A1A",
-  },
-  ctaText: {
-    color: "#F1F5F9",
-  },
-});

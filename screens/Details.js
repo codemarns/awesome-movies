@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, ScrollView, View, Text } from "react-native";
+import { ScrollView, View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Header } from "../components/Header";
 import { Error } from "./Error";
 import { Img } from "../components/Img";
+import styles from "../styles/App.scss";
 
 export const Details = ({ route, navigation }) => {
   const { movieID } = route.params;
@@ -44,19 +45,19 @@ export const Details = ({ route, navigation }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}
       >
-        <View style={styles.container}>
+        <View style={styles.detailsContainer}>
           {loading ? (
             <Text style={styles.messageText}>Loading...</Text>
           ) : (
             <>
               <Img src={movie.Poster} />
-              <View style={styles.yearAndDirector}>
-                <Text style={styles.text}>Year: {movie.Year}</Text>
-                <Text style={[styles.text, styles.director]}>
+              <View style={styles.detailsYearAndDirector}>
+                <Text style={styles.detailsText}>Year: {movie.Year}</Text>
+                <Text style={styles.detailsDirector}>
                   Director: {movie.Director}
                 </Text>
               </View>
-              <Text style={styles.text}>{movie.Plot}</Text>
+              <Text style={styles.detailsText}>{movie.Plot}</Text>
             </>
           )}
         </View>
@@ -66,42 +67,3 @@ export const Details = ({ route, navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  root: {
-    minHeight: "100vh",
-    width: "100%",
-    flex: 1,
-    backgroundColor: "#0B0C0F",
-  },
-  container: {
-    height: "auto",
-    width: "100%",
-    padding: 24,
-    display: "flex",
-    flexDirection: "column",
-    gap: 8,
-  },
-  messageText: {
-    color: "#F1F5F9",
-    fontSize: 16,
-    fontWeight: 200,
-    marginTop: 2,
-    flexGrow: 1,
-    textAlign: "center",
-  },
-  yearAndDirector: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  text: {
-    color: "#F1F5F9",
-    fontSize: 16,
-    fontWeight: 200,
-    marginTop: 2,
-    flexGrow: 1,
-  },
-  director: {
-    textAlign: "right",
-  },
-});

@@ -1,0 +1,211 @@
+$background: black;
+$foreground: firebrick;
+$primary-color: ghostwhite;
+$secondary-color: slategray;
+$full: 100%;
+$font-size: 16px;
+$font-weight: 200;
+$padding: 12px;
+$margin-top: 2px;
+$flex: flex;
+
+// ==================================
+// ========= Global Styling =========
+// ==================================
+.root {
+  flex: 1;
+  width: $full;
+  min-height: 100vh;
+  background-color: $background;
+}
+
+%container {
+  height: auto;
+  width: $full;
+  display: $flex;
+}
+
+%text {
+  color: $primary-color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  margin-top: $margin-top;
+  flex-grow: 1;
+}
+
+.messageText {
+  @extend %text;
+  text-align: center;
+}
+
+// ==================================
+// ========== Home Styling ==========
+// ==================================
+.homeContainer {
+  @extend %container;
+  padding: $padding;
+}
+.homeContent {
+  height: auto;
+  width: $full;
+  display: $flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.loadMore {
+  width: $full;
+  padding: $padding;
+}
+.loadMoreBtn {
+  height: 40px;
+  width: auto;
+  display: $flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $foreground;
+}
+.loadMoreText {
+  color: $primary-color;
+}
+
+// ==================================
+// ========= Details Styling ========
+// ==================================
+.detailsContainer {
+  @extend %container;
+  padding: $padding * 2;
+  flex-direction: column;
+  gap: 8px;
+}
+.detailsYearAndDirector {
+  display: $flex;
+  flex-direction: row;
+}
+.detailsText {
+  @extend %text;
+  text-align: left;
+}
+.detailsDirector {
+  @extend %text;
+  text-align: right;
+}
+
+// ==================================
+// ========= Error Styling ==========
+// ==================================
+.errorContainer {
+  @extend %container;
+  padding: $padding * 2;
+  align-items: center;
+  justify-content: center;
+}
+
+// ==================================
+// ========== Card Styling ==========
+// ==================================
+.cardWrapper {
+  width: $full;
+  max-width: 50%;
+  padding: 12px;
+}
+.cardTouchable {
+  width: $full;
+}
+.cardBase {
+  width: $full;
+}
+.cardTitle {
+  color: $primary-color;
+  font-size: $font-size;
+  font-family: fantasy;
+  font-weight: $font-weight * 2;
+  letter-spacing: 1;
+  margin-top: $margin-top + 5px;
+}
+.cardYear {
+  color: $primary-color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  margin-top: $margin-top;
+}
+
+// ==================================
+// ========= Header Styling =========
+// ==================================
+.header {
+  height: 80px;
+  width: $full;
+  padding: 0 16px;
+  background-color: $foreground;
+  gap: 12px;
+  display: $flex;
+  flex-direction: row;
+  align-items: center;
+}
+.headerBackIcon {
+  width: 24px;
+  color: $primary-color;
+}
+.headerTitle {
+  flex: 1;
+  font-size: 24px;
+  letter-spacing: 2;
+  color: $primary-color;
+  font-family: fantasy;
+  text-align: center;
+}
+
+// ==================================
+// ========= Image Styling ==========
+// ==================================
+.imageWrapper {
+  height: auto;
+  width: $full;
+  padding-top: 150%;
+}
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: $full;
+  height: $full;
+  display: $flex;
+  align-items: center;
+  justify-content: center;
+}
+.imageBase {
+  width: $full;
+  height: $full;
+  object-fit: cover;
+}
+
+// ==================================
+// ========= Search Styling =========
+// ==================================
+.search {
+  height: auto;
+  width: $full;
+  padding: $padding;
+}
+.searchBar {
+  display: flex;
+  position: relative;
+}
+.searchIcon {
+  position: absolute;
+  top: 8;
+  left: 16;
+  width: 24;
+  color: $secondary-color;
+}
+.searchInput {
+  height: 40px;
+  padding: 0 20px 2px 48px;
+  border: 1px solid $secondary-color;
+  border-radius: 20px;
+  color: $secondary-color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
