@@ -12,7 +12,7 @@ export const Home = ({ navigation }) => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [initialPost, setInitialPost] = useState(5);
+  const [initialPost, setInitialPost] = useState(6);
 
   const data = Object.values(movies);
 
