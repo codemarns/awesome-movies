@@ -1,6 +1,6 @@
 $tertiary-color: black;
 $primary-color: firebrick;
-$secondary-color: #1A1A1A;
+$secondary-color: #1a1a1a;
 $light-color: ghostwhite;
 $gray-color: slategray;
 // $secondary-color: firebrick;
@@ -68,7 +68,6 @@ $flex: flex;
   justify-content: center;
   border: 1px solid $secondary-color;
   transition: all 150ms ease-in-out;
-
 }
 .hoveredLoadMoreBtn {
   background-color: $secondary-color;
@@ -99,10 +98,17 @@ $flex: flex;
   @extend %text;
   text-align: right;
 }
-.detailsSource {
-  @extend %text;
-  color: $primary-color;
+.detailsRating {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+.detailsRatingTitle {
+  flex: 1;
   font-weight: normal;
+  color: $light-color;
+  font-size: 20px;
 }
 
 // ==================================
@@ -222,4 +228,41 @@ $flex: flex;
   color: $gray-color;
   font-size: $font-size;
   font-weight: $font-weight;
+}
+
+// ==================================
+// ========= Rating Styling =========
+// ==================================
+.ratingWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ratingContent {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.ratingSource {
+  @extend %text;
+  color: $light-color;
+  flex-grow: unset;
+}
+.ratingValue {
+  @extend %text;
+  color: $gray-color;
+  flex-grow: unset;
+}
+.ratingValueTrack {
+  position: relative;
+  width: $full;
+  height: 6px;
+  border: 1px solid $secondary-color;
+}
+.ratingValueThumb {
+  position: absolute;
+  inset: 0;
+  right: auto;
+  height: 6px;
+  background-color: $primary-color;
 }

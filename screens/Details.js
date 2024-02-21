@@ -5,6 +5,7 @@ import { Header } from "../components/Header";
 import { Error } from "./Error";
 import { Img } from "../components/Img";
 import styles from "../styles/App.scss";
+import { Rating } from "../components/Rating";
 
 export const Details = ({ route, navigation }) => {
   const { movieID } = route.params;
@@ -51,13 +52,26 @@ export const Details = ({ route, navigation }) => {
           ) : (
             <>
               <Img src={movie.Poster} />
+
               <View style={styles.detailsYearAndDirector}>
                 <Text style={styles.detailsText}>Year: {movie.Year}</Text>
                 <Text style={styles.detailsDirector}>
                   Director: {movie.Director}
                 </Text>
               </View>
+
               <Text style={styles.detailsText}>{movie.Plot}</Text>
+
+              <View style={styles.detailsRating}>
+                <Text style={styles.detailsRatingTitle}>Ratings</Text>
+                {movie.Ratings.map((rating, index) => (
+                  <Rating
+                    key={index}
+                    source={rating.Source}
+                    value={rating.Value}
+                  />
+                ))}
+              </View>
             </>
           )}
         </View>
