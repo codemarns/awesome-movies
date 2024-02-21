@@ -14,6 +14,7 @@ export const Home = ({ navigation }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [initialPost, setInitialPost] = useState(6);
+  const [hoverBtn, setHoverBtn] = useState(false);
 
   const data = Object.values(movies);
 
@@ -88,7 +89,12 @@ export const Home = ({ navigation }) => {
                     {initialPost >= search(data).length ? null : (
                       <View style={styles.loadMore}>
                         <Pressable
-                          style={styles.loadMoreBtn}
+                          style={[
+                            styles.loadMoreBtn,
+                            hoverBtn ? styles.hoveredLoadMoreBtn : "",
+                          ]}
+                          onHoverIn={() => setHoverBtn(true)}
+                          onHoverOut={() => setHoverBtn(false)}
                           onPress={() => setInitialPost(initialPost + 5)}
                         >
                           <Text style={styles.loadMoreText}>Load More</Text>
